@@ -2,7 +2,7 @@ name: Deploy SpaCar Website
 
 on:
   push:
-    branches: ["main"] # Tự động chạy mỗi khi bạn push code lên nhánh main
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -20,17 +20,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          # Đã bỏ dòng cache để tránh lỗi không tìm thấy lock file
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
+      - name: Install and Build
+        run: |
+          cd "Source Code" # Chú ý: Cần có dấu ngoặc kép vì tên thư mục có khoảng trắng
+          npm install
+          npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist # Nếu bạn dùng Vite thì là ./dist, nếu dùng Create React App thì sửa thành ./build
+          # Kiểm tra: Nếu dùng Vite thì để dist, nếu dùng React cũ thì sửa thành build
+          path: ./Source Code/dist
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
