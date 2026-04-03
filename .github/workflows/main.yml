@@ -1,14 +1,11 @@
 name: Deploy SpaCar Website
-
 on:
   push:
     branches: ["main"]
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -20,19 +17,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # Đã bỏ dòng cache để tránh lỗi không tìm thấy lock file
 
       - name: Install and Build
+        # Vì GitHub Actions chạy từ thư mục gốc của Repo (tức là Source Code)
+        # nên ta chỉ cần chui vào spacar-project
+        working-directory: "./spacar-project"
         run: |
-          cd "Source Code" # Chú ý: Cần có dấu ngoặc kép vì tên thư mục có khoảng trắng
           npm install
           npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Kiểm tra: Nếu dùng Vite thì để dist, nếu dùng React cũ thì sửa thành build
-          path: ./Source Code/dist
+          path: "./spacar-project/dist"
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
