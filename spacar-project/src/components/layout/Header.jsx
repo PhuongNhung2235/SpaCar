@@ -51,7 +51,7 @@ const Header = () => {
         >
           <div className="absolute top-0 left-0 w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl border border-gray-50 transform translate-y-0.5">
             <img
-              src="/logo.png"
+              src="logo.png"
               alt="SpaCar Logo"
               className="object-contain p-1"
             />

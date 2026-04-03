@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="space-y-5">
             {/* Giảm size logo từ 24 (96px) xuống 20 (80px) */}
             <div className="inline-block bg-white p-0.5 rounded-full shadow-2xl border-2 border-blue-900/10">
-              <img src="/logo.png" alt="SpaCar Logo" className="h-20 w-20" />
+              <img src="logo.png" alt="SpaCar Logo" className="h-20 w-20" />
             </div>
 
             {/* Giảm font-size từ 15px xuống 13px */}

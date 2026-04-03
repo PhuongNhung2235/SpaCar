@@ -34,7 +34,7 @@ const Sidebar = ({ menuItems, user }) => {
         className="p-6 flex justify-center cursor-pointer"
         onClick={() => navigate("/")}
       >
-        <img src="/logo.png" alt="SpaCar" className="h-14 object-contain" />
+        <img src="logo.png" alt="SpaCar" className="h-14 object-contain" />
       </div>
 
       {/* DANH SÁCH MENU */}
