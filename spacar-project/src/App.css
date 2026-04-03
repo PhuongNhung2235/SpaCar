@@ -1,0 +1,5 @@
+/* Ép icon lịch sang màu xanh (xấp xỉ) */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(190deg)
+    brightness(118%) contrast(119%);
+}
